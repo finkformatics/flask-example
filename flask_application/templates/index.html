@@ -1,10 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Hello World</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Index{% endblock %}
+{% block content %}
+    <h1>Hello, {{ name }}!</h1>
+    <h2>Cool Search Engines for you:</h2>
+    <ul>
+        {% for s_name, url in search_engines.items() %}
+            {% if s_name == 'Yahoo' %}
+                <li><a href="#" onclick="alert('{{ s_name }} is blocked!'); return false;">{{ s_name }} (blocked)</a></li>
+            {% else %}
+                <li><a href="{{ url }}" target="_blank">{{ s_name }}</a></li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endblock %}
