@@ -13,4 +13,11 @@
             {% endif %}
         {% endfor %}
     </ul>
+    <form action="/add" method="post">
+        <label for="search-engine-name">Search Engine Name:</label><br>
+        <input type="text" id="search-engine-name" name="search-engine-name" placeholder="e.g. Web.de" required><br>
+        <label for="search-engine-url">Search Engine URL:</label><br>
+        <input type="url" id="search-engine-url" name="search-engine-url" placeholder="e.g. https://web.de" required><br>
+        <input type="submit" value="Add Search Engine">
+    </form>
 {% endblock %}
